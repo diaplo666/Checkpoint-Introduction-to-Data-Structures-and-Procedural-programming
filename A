@@ -1,0 +1,38 @@
+FUNCTION sumOfDistinctElements(set1, set2):
+    
+    distinctElements := []
+
+   
+    FOR i FROM 0 TO LENGTH(set1) - 1 DO
+        
+        IF NOT CONTAINS(distinctElements, set1[i]) THEN
+           
+            APPEND(distinctElements, set1[i])
+        END_IF
+    END_FOR
+
+   
+    FOR j FROM 0 TO LENGTH(set2) - 1 DO
+        // Check if the element is not present in distinctElements array
+        IF NOT CONTAINS(distinctElements, set2[j]) THEN
+            // Add the element to the distinctElements array
+            APPEND(distinctElements, set2[j])
+        END_IF
+    END_FOR
+
+   
+    sum := 0
+
+   
+    FOR k FROM 0 TO LENGTH(distinctElements) - 1 DO
+        sum := sum + distinctElements[k]
+    END_FOR
+
+    RETURN sum
+END FUNCTION
+
+// Example Usage
+set1 := [3, 1, 7, 9]
+set2 := [2, 4, 1, 9, 3]
+result := sumOfDistinctElements(set1, set2)
+OUTPUT(result)  
